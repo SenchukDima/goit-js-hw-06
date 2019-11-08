@@ -1,38 +1,9 @@
 "use strict";
 
-class StringBuilder {
+import users from './users.js';
 
-  constructor(value) {
-    this._value = value;
+const getInactiveUsers = users => {
+  return users.filter(user => !user.isActive);
 };
 
-get value() {
-  return this._value;
-};
-
-append(str) {
-  return this._value += str;
-}
-
-prepend(str) {
-  return this._value = str + this._value;
-}
-
-pad(str) {
-  return this._value = str + this._value + str;
-}
-
-}
-
-
-
-const builder = new StringBuilder('.');
-
-builder.append('^');
-console.log(builder.value); // '.^'
-
-builder.prepend('^');
-console.log(builder.value); // '^.^'
-
-builder.pad('=');
-console.log(builder.value); // '=^.^='
+console.log(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
